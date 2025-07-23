@@ -6,6 +6,13 @@ function App() {
   const [gender, setGender] = useState('');
   const [aliyahDate, setAliyahDate] = useState('');
 
+  // автоматически определяем тип репатрианта
+  const aliyahType = (() => {
+    if (!aliyahDate) return '';
+    const year = new Date(aliyahDate).getFullYear();
+    return year >= 2022 ? 'after2022' : 'before2022';
+  })();
+
   return (
     <div className="app">
       <h1>Калькулятор некудот зикуи</h1>
@@ -29,7 +36,11 @@ function App() {
       </div>
 
       {gender && aliyahDate && (
-        <Calculator gender={gender} aliyahDate={aliyahDate} />
+        <Calculator
+          gender={gender}
+          aliyahDate={aliyahDate}
+          aliyahType={aliyahType}
+        />
       )}
     </div>
   );

@@ -1,41 +1,65 @@
-import { useMemo } from 'react';
 import './Calculator.css';
 
 const CREDIT_VALUE = 242;
 
-function Calculator({ gender, aliyahDate }) {
-  const aliyah = new Date(aliyahDate);
+function Calculator({ gender, aliyahDate, aliyahType }) {
+  const basePoints = gender === 'female' ? 2.75 : 2.25;
+  const start = new Date(aliyahDate);
+  const months = [];
 
-  const data = useMemo(() => {
-    const basePoints = gender === 'female' ? 2.75 : 2.25;
-    const entries = [];
-    const now = new Date();
-    const months = 60; // максимум
-    let current = new Date(aliyah);
+  const stages =
+    aliyahType === 'before2022'
+      ? [
+          { duration: 18, extraPoints: 3 },
+          { duration: 12, extraPoints: 2 },
+          { duration: 12, extraPoints: 1 },
+        ]
+      : [
+          { duration: 12, extraPoints: 1 },
+          { duration: 18, extraPoints: 3 },
+          { duration: 12, extraPoints: 2 },
+          { duration: 12, extraPoints: 1 },
+        ];
 
-    for (let i = 0; i < months; i++) {
-      const y = current.getFullYear();
-      const m = String(current.getMonth() + 1).padStart(2, '0');
-      const label = `${m}.${y}`;
-      let bonus = 0;
+  let current = new Date(start);
+  let monthIndex = 0;
 
-      if (i < 12) bonus = 1 / 12;
-      else if (i < 30) bonus = 0.25;
-      else if (i < 42) bonus = 1 / 6;
-      else if (i < 54) bonus = 1 / 12;
+  for (const stage of stages) {
+    for (let i = 0; i < stage.duration; i++) {
+      const monthLabel = current.toLocaleDateString('ru-RU', {
+        month: '2-digit',
+        year: 'numeric',
+      });
 
-      entries.push({
-        month: label,
-        bonusPoints: bonus,
-        totalPoints: basePoints + bonus,
-        totalDiscount: (basePoints + bonus) * CREDIT_VALUE,
+      const totalPoints = basePoints + stage.extraPoints;
+      const totalDiscount = totalPoints * CREDIT_VALUE;
+
+      months.push({
+        month: monthLabel,
+        extraPoints: stage.extraPoints,
+        basePoints,
+        totalPoints,
+        totalDiscount,
       });
 
       current.setMonth(current.getMonth() + 1);
+      monthIndex++;
     }
+  }
 
-    return entries;
-  }, [gender, aliyahDate]);
+  // Добавим "после окончания льгот"
+  const finalMonth = current.toLocaleDateString('ru-RU', {
+    month: '2-digit',
+    year: 'numeric',
+  });
+
+  months.push({
+    month: finalMonth + ' и далее',
+    extraPoints: 0,
+    basePoints,
+    totalPoints: basePoints,
+    totalDiscount: basePoints * CREDIT_VALUE,
+  });
 
   return (
     <div className="table-container">
@@ -44,16 +68,18 @@ function Calculator({ gender, aliyahDate }) {
           <tr>
             <th>Месяц</th>
             <th>Доп. н.з.</th>
+            <th>Базовые н.з.</th>
             <th>Всего н.з.</th>
             <th>Льгота (₪)</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((row, i) => (
-            <tr key={i}>
+          {months.map((row, index) => (
+            <tr key={index}>
               <td>{row.month}</td>
-              <td>{row.bonusPoints.toFixed(3)}</td>
-              <td>{row.totalPoints.toFixed(2)}</td>
+              <td>{row.extraPoints}</td>
+              <td>{row.basePoints}</td>
+              <td>{row.totalPoints}</td>
               <td>{row.totalDiscount.toFixed(2)} ₪</td>
             </tr>
           ))}
