@@ -41,7 +41,7 @@ Table layout adapts to small screens without breaking
 Font sizes and spacing optimized for touch interaction
 
 ## 📝 Roadmap
- Multi-language support (Hebrew, English, Arabic)
+ Multi-language support (Hebrew, English, Ukranian, etc)
 
  Custom date picker with Hebrew calendar support
 
