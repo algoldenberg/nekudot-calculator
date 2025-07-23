@@ -7,7 +7,6 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
   const tableRef = useRef(null);
   const basePoints = gender === 'female' ? 2.75 : 2.25;
 
-  // 🧠 Фикс даты: парсим дд.мм.гггг → гггг-мм-дд
   const [day, month, year] = aliyahDate.split('.');
   const start = new Date(`${year}-${month}-${day}`);
 
