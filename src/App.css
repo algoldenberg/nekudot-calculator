@@ -7,6 +7,7 @@ body, html {
   color: #111;
 }
 
+
 .app-wrapper {
   display: flex;
   flex-direction: column;
@@ -20,6 +21,8 @@ body, html {
   align-items: center;
   padding: 2rem;
 }
+
+
 
 .form-container {
   display: flex;

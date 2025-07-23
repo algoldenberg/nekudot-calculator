@@ -5,10 +5,16 @@ function Header() {
   return (
     <header className="site-header">
       <div className="logo-block">
-        <img src={emblem} alt="Герб Израиля" className="emblem" />
+      <a href="/">
+          <img src={emblem} alt="Герб Израиля" className="emblem" />
+        </a>
         <div className="text">
-          <h1>Калькулятор налоговых льгот</h1>
-          <p className="tagline">Для новых репатриантов — просто и понятно</p>
+          <h1 className="main-title">
+            Калькулятор налоговых льгот
+          </h1>
+          <p className="tagline">
+            Для новых репатриантов — просто&nbsp;и&nbsp;понятно
+          </p>
         </div>
       </div>
     </header>
