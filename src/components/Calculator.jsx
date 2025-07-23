@@ -1,8 +1,10 @@
 import './Calculator.css';
+import { useRef } from 'react';
 
 const CREDIT_VALUE = 242;
 
 function Calculator({ gender, aliyahDate, aliyahType }) {
+  const tableRef = useRef(null);
   const basePoints = gender === 'female' ? 2.75 : 2.25;
   const start = new Date(aliyahDate);
   const months = [];
@@ -75,9 +77,33 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
     ),
   });
 
+  const copyTableToClipboard = () => {
+    if (!tableRef.current) return;
+
+    const rows = Array.from(tableRef.current.querySelectorAll('tbody tr'))
+      .filter(row => !row.classList.contains('message-row'))
+      .map(row => {
+        const cells = Array.from(row.querySelectorAll('td')).map(cell =>
+          cell.innerText.replace(' ₪', '')
+        );
+        return cells.join('\t');
+      });
+
+    const header = ['Месяц', 'Доп. н.з.', 'Базовые н.з.', 'Всего н.з.', 'Льгота (₪)'].join('\t');
+    const text = [header, ...rows].join('\n');
+
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Таблица скопирована в буфер обмена!');
+    });
+  };
+
   return (
     <div className="table-container">
-      <table>
+      <button className="copy-btn" onClick={copyTableToClipboard}>
+        📋 Скопировать таблицу
+      </button>
+
+      <table ref={tableRef}>
         <thead>
           <tr>
             <th>Месяц</th>

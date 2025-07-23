@@ -88,6 +88,24 @@ th {
   background-color: #e5ebf1;
 }
 
+
+.error-label {
+  color: #b00020;
+}
+
+.error-input {
+  border: 1px solid #b00020;
+  background-color: #fff0f0;
+}
+
+.error-message {
+  color: #b00020;
+  font-size: 0.9rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+
 @media (max-width: 480px) {
   .table-container {
     width: 100%;
