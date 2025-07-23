@@ -140,3 +140,24 @@ th {
   }
 }
 
+.faq-btn {
+  margin-top: 0.75rem;
+  background-color: #1e4c9a;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 50%; 
+  align-self: center; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.faq-btn:hover {
+  background-color: #153d80;
+}

@@ -65,6 +65,8 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
       <div className="benefit-ended">
         ⚠️ Льготы репатрианта закончились — осталось только базовые очки.
         <br />
+        <br />
+        Нажав на кнопку ниже вы можете рассчитать дополнительные некудот зикуи, зависящие от вашего семейного статуса, наличия детей и т.д. на официальной странице налогового управления Израиля
         <a
           className="simulator-link"
           href="https://secapp.taxes.gov.il/srsimulatorNZ/#/simulator"

@@ -3,12 +3,14 @@ import { useState } from 'react';
 import Calculator from './components/Calculator';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import FaqModal from './components/FaqModal';
 
 function App() {
   const [gender, setGender] = useState('');
   const [aliyahDate, setAliyahDate] = useState('');
   const [aliyahType, setAliyahType] = useState('');
   const [showError, setShowError] = useState(false);
+  const [isFaqOpen, setIsFaqOpen] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,8 +57,17 @@ function App() {
             </div>
           )}
 
-          <button type="submit">Рассчитать</button>
-        </form>
+<button type="submit">Рассчитать</button>
+
+<button
+  type="button"
+  className="faq-btn"
+  onClick={() => setIsFaqOpen(true)}
+>
+  Что такое  <br />налоговые льготы?
+</button>
+</form>
+
 
         {gender && aliyahDate && aliyahType && (
           <Calculator
@@ -66,6 +77,8 @@ function App() {
           />
         )}
       </main>
+
+      <FaqModal isOpen={isFaqOpen} onClose={() => setIsFaqOpen(false)} />
       <Footer />
     </div>
   );
