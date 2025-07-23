@@ -8,19 +8,59 @@ import FaqModal from './components/FaqModal';
 function App() {
   const [gender, setGender] = useState('');
   const [aliyahDate, setAliyahDate] = useState('');
-  const [aliyahType, setAliyahType] = useState('');
   const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [isFaqOpen, setIsFaqOpen] = useState(false);
+
+  // Сохраняем отправленные значения
+  const [submittedGender, setSubmittedGender] = useState('');
+  const [submittedDate, setSubmittedDate] = useState('');
+  const [submittedType, setSubmittedType] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const isValidDate = (dateStr) => {
+    const regex = /^(\d{2})\.(\d{2})\.(\d{4})$/;
+    const match = dateStr.match(regex);
+    if (!match) return false;
+
+    const day = parseInt(match[1]);
+    const month = parseInt(match[2]) - 1;
+    const year = parseInt(match[3]);
+
+    if (year < 1948 || year > 2100) return false;
+
+    const date = new Date(year, month, day);
+    return (
+      date.getFullYear() === year &&
+      date.getMonth() === month &&
+      date.getDate() === day
+    );
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!gender || !aliyahDate) {
+      setErrorMessage('Пожалуйста, заполните все поля перед расчётом.');
       setShowError(true);
       return;
     }
-    const year = new Date(aliyahDate).getFullYear();
-    setAliyahType(year >= 2022 ? 'after2022' : 'before2022');
+
+    if (!isValidDate(aliyahDate)) {
+      setErrorMessage('Неверная дата. Используйте формат ДД.ММ.ГГГГ и год от 1948 до 2100.');
+      setShowError(true);
+      return;
+    }
+
+    const year = parseInt(aliyahDate.split('.')[2]);
+    const type = year >= 2022 ? 'after2022' : 'before2022';
+
+    setSubmittedGender(gender);
+    setSubmittedDate(aliyahDate);
+    setSubmittedType(type);
+
     setShowError(false);
+    setSubmitted(true);
   };
 
   return (
@@ -44,36 +84,46 @@ function App() {
           <label className={showError && !aliyahDate ? 'error-label' : ''}>
             Дата репатриации:
             <input
-              type="date"
+              type="text"
               value={aliyahDate}
-              onChange={(e) => setAliyahDate(e.target.value)}
+              onChange={(e) => {
+                let val = e.target.value.replace(/\D/g, '').slice(0, 8); // Удаляем всё, кроме цифр, максимум 8 символов
+
+                if (val.length >= 5) {
+                  val = `${val.slice(0, 2)}.${val.slice(2, 4)}.${val.slice(4, 8)}`;
+                } else if (val.length >= 3) {
+                  val = `${val.slice(0, 2)}.${val.slice(2, 4)}`;
+                }
+
+                setAliyahDate(val);
+              }}
+              placeholder="дд.мм.гггг"
               className={showError && !aliyahDate ? 'error-input' : ''}
             />
           </label>
 
           {showError && (
             <div className="error-message">
-              Пожалуйста, заполните все поля перед расчётом.
+              {errorMessage}
             </div>
           )}
 
-<button type="submit">Рассчитать</button>
+          <button type="submit">Рассчитать</button>
 
-<button
-  type="button"
-  className="faq-btn"
-  onClick={() => setIsFaqOpen(true)}
->
-  Что такое  <br />налоговые льготы?
-</button>
-</form>
+          <button
+            type="button"
+            className="faq-btn"
+            onClick={() => setIsFaqOpen(true)}
+          >
+            Что такое <br /> налоговые льготы?
+          </button>
+        </form>
 
-
-        {gender && aliyahDate && aliyahType && (
+        {submitted && submittedGender && submittedDate && submittedType && (
           <Calculator
-            gender={gender}
-            aliyahDate={aliyahDate}
-            aliyahType={aliyahType}
+            gender={submittedGender}
+            aliyahDate={submittedDate}
+            aliyahType={submittedType}
           />
         )}
       </main>
