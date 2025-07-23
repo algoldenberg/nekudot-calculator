@@ -1,3 +1,4 @@
+// src/components/Calculator.jsx
 import './Calculator.css';
 
 const CREDIT_VALUE = 242;
@@ -22,7 +23,6 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
         ];
 
   let current = new Date(start);
-  let monthIndex = 0;
 
   for (const stage of stages) {
     for (let i = 0; i < stage.duration; i++) {
@@ -43,22 +43,46 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
       });
 
       current.setMonth(current.getMonth() + 1);
-      monthIndex++;
     }
   }
 
-  // Добавим "после окончания льгот"
-  const finalMonth = current.toLocaleDateString('ru-RU', {
+  const lastBenefitMonth = current.toLocaleDateString('ru-RU', {
     month: '2-digit',
     year: 'numeric',
   });
 
   months.push({
-    month: finalMonth + ' и далее',
+    month: lastBenefitMonth,
     extraPoints: 0,
     basePoints,
     totalPoints: basePoints,
     totalDiscount: basePoints * CREDIT_VALUE,
+  });
+
+  months.push({
+    message: (
+      <span>
+        ⚠️ Льготы репатрианта закончились — осталось только базовые очки.{' '}
+        Вы можете также проверить, полагаются ли вам дополнительные баллы за статус семейного положения:
+        <br />
+        <a
+          href="https://secapp.taxes.gov.il/srsimulatorNZ/#/simulator"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            marginTop: '0.5rem',
+            padding: '0.4rem 0.9rem',
+            backgroundColor: '#1e4c9a',
+            color: 'white',
+            textDecoration: 'none',
+            borderRadius: '4px',
+          }}
+        >
+          Перейти к калькулятору
+        </a>
+      </span>
+    ),
   });
 
   return (
@@ -75,13 +99,21 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
         </thead>
         <tbody>
           {months.map((row, index) => (
-            <tr key={index}>
-              <td>{row.month}</td>
-              <td>{row.extraPoints}</td>
-              <td>{row.basePoints}</td>
-              <td>{row.totalPoints}</td>
-              <td>{row.totalDiscount.toFixed(2)} ₪</td>
-            </tr>
+            row.message ? (
+              <tr key={index}>
+                <td colSpan="5" style={{ textAlign: 'center', fontStyle: 'italic', color: '#999' }}>
+                  {row.message}
+                </td>
+              </tr>
+            ) : (
+              <tr key={index}>
+                <td>{row.month}</td>
+                <td>{row.extraPoints}</td>
+                <td>{row.basePoints}</td>
+                <td>{row.totalPoints}</td>
+                <td>{row.totalDiscount.toFixed(2)} ₪</td>
+              </tr>
+            )
           ))}
         </tbody>
       </table>
