@@ -1,31 +1,35 @@
-.modal-overlay {
+.faq-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 9999;
+    overflow: hidden;
   }
   
-  .modal-content {
+  .faq-modal-content {
     background-color: #fff;
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     border-radius: 8px;
     width: 90%;
-    max-width: 500px;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     position: relative;
     animation: fadeIn 0.2s ease-in-out;
+    box-sizing: border-box;
   }
   
-  .modal-close {
+  .faq-close-btn {
     position: absolute;
-    top: 0.5rem;
-    right: 0.7rem;
+    top: 0.7rem;
+    right: 1rem;
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -33,16 +37,25 @@
     color: #666;
   }
   
-  .modal-content h2 {
+  .faq-modal-content h2 {
     margin-top: 0;
     margin-bottom: 1rem;
     font-size: 1.3rem;
     color: #003366;
   }
   
-  .modal-content p {
+  .faq-modal-content p {
     margin-bottom: 0.8rem;
     line-height: 1.5;
+  }
+  
+  .faq-modal-content ul {
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .faq-modal-content li {
+    margin-bottom: 0.4rem;
   }
   
   @keyframes fadeIn {

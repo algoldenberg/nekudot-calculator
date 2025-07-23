@@ -10,12 +10,15 @@ function FaqModal({ isOpen, onClose }) {
     };
 
     if (isOpen) {
+      document.body.style.overflow = 'hidden'; // Disable scroll
       document.addEventListener('keydown', handleEsc);
     } else {
+      document.body.style.overflow = ''; // Enable scroll
       document.removeEventListener('keydown', handleEsc);
     }
 
     return () => {
+      document.body.style.overflow = '';
       document.removeEventListener('keydown', handleEsc);
     };
   }, [isOpen, onClose]);
@@ -23,9 +26,9 @@ function FaqModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>
+    <div className="faq-modal-overlay" onClick={onClose}>
+      <div className="faq-modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="faq-close-btn" onClick={onClose}>
           ✕
         </button>
         <h2>Что такое налоговые очки?</h2>
@@ -57,7 +60,6 @@ function FaqModal({ isOpen, onClose }) {
       </div>
     </div>
   );
-  
 }
 
 export default FaqModal;
