@@ -84,3 +84,38 @@ td {
 th {
   background-color: #e5ebf1;
 }
+
+@media (max-width: 480px) {
+  .table-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  table {
+    width: 100%;
+    font-size: 0.75rem;
+  }
+
+  th,
+  td {
+    padding: 0.4rem;
+    word-break: break-word;
+  }
+
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 20%;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2),
+  th:nth-child(3),
+  td:nth-child(3),
+  th:nth-child(4),
+  td:nth-child(4),
+  th:nth-child(5),
+  td:nth-child(5) {
+    width: 20%;
+  }
+}
+
