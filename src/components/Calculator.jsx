@@ -97,11 +97,41 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
     });
   };
 
+  const exportToCSV = () => {
+    const header = ['Месяц', 'Доп. н.з.', 'Базовые н.з.', 'Всего н.з.', 'Льгота (₪)'];
+    const rows = months
+      .filter(row => !row.message)
+      .map(row => [
+        row.month,
+        row.extraPoints,
+        row.basePoints,
+        row.totalPoints,
+        `${row.totalDiscount.toFixed(2)} ₪`,
+      ]);
+
+    const csvContent =
+      'data:text/csv;charset=utf-8,' +
+      [header, ...rows].map(e => e.join(',')).join('\n');
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', 'tax-benefits.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="table-container">
-      <button className="copy-btn" onClick={copyTableToClipboard}>
-        📋 Скопировать таблицу
-      </button>
+      <div className="table-actions">
+        <button className="copy-btn" onClick={copyTableToClipboard}>
+          📋 Скопировать таблицу
+        </button>
+        <button className="export-btn" onClick={exportToCSV}>
+          📁 Экспортировать в CSV
+        </button>
+      </div>
 
       <table ref={tableRef}>
         <thead>

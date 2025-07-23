@@ -74,4 +74,29 @@
   .simulator-link:hover {
     background-color: #173e80;
   }
+
+  .table-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    max-width: 800px;
+    gap: 1rem;
+  }
+  
+  .export-btn {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: #1e4c9a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .copy-btn:hover,
+  .export-btn:hover {
+    background-color: #153d80;
+  }
   
