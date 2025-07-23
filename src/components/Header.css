@@ -1,0 +1,29 @@
+.site-header {
+  background-color: #f5f8fa;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.emblem {
+  width: 50px;
+  height: auto;
+}
+
+.text h1 {
+  margin: 0;
+  color: #003366;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}

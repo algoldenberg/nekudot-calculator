@@ -1,4 +1,3 @@
-// src/components/Calculator.jsx
 import './Calculator.css';
 
 const CREDIT_VALUE = 242;
@@ -61,27 +60,18 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
 
   months.push({
     message: (
-      <span>
-        ⚠️ Льготы репатрианта закончились — осталось только базовые очки.{' '}
-        Вы можете также проверить, полагаются ли вам дополнительные баллы за статус семейного положения:
+      <div className="benefit-ended">
+        ⚠️ Льготы репатрианта закончились — осталось только базовые очки.
         <br />
         <a
+          className="simulator-link"
           href="https://secapp.taxes.gov.il/srsimulatorNZ/#/simulator"
           target="_blank"
           rel="noopener noreferrer"
-          style={{
-            display: 'inline-block',
-            marginTop: '0.5rem',
-            padding: '0.4rem 0.9rem',
-            backgroundColor: '#1e4c9a',
-            color: 'white',
-            textDecoration: 'none',
-            borderRadius: '4px',
-          }}
         >
-          Перейти к калькулятору
+          Перейти к калькулятору семейных льгот
         </a>
-      </span>
+      </div>
     ),
   });
 
@@ -98,10 +88,10 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
           </tr>
         </thead>
         <tbody>
-          {months.map((row, index) => (
+          {months.map((row, index) =>
             row.message ? (
               <tr key={index}>
-                <td colSpan="5" style={{ textAlign: 'center', fontStyle: 'italic', color: '#999' }}>
+                <td colSpan="5" className="message-row">
                   {row.message}
                 </td>
               </tr>
@@ -114,7 +104,7 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
                 <td>{row.totalDiscount.toFixed(2)} ₪</td>
               </tr>
             )
-          ))}
+          )}
         </tbody>
       </table>
     </div>

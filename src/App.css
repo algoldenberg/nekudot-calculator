@@ -1,54 +1,86 @@
-body {
+body, html {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #f5f7fa;
-  color: #212121;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f6f8fa;
+  color: #111;
 }
 
-.app {
-  max-width: 900px;
-  margin: 2rem auto;
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
 }
 
-h1 {
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-  color: #1e4c9a;
-  text-align: center;
-  font-weight: 600;
-}
-
-.form {
+.form-container {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  min-width: 300px;
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
-label {
+.form-container label {
+  font-weight: bold;
   display: flex;
   flex-direction: column;
   font-size: 1rem;
-  color: #333;
 }
 
-select,
-input[type='date'] {
+.form-container select,
+.form-container input,
+.form-container button {
   margin-top: 0.5rem;
-  padding: 0.6rem;
+  padding: 0.5rem;
   font-size: 1rem;
-  border: 1px solid #ccc;
+}
+
+.form-container button {
+  background-color: #1e4c9a;
+  color: white;
+  border: none;
+  cursor: pointer;
   border-radius: 4px;
 }
 
-select:focus,
-input[type='date']:focus {
-  outline: none;
-  border-color: #1e4c9a;
-  box-shadow: 0 0 0 2px rgba(30, 76, 154, 0.2);
+.form-container button:hover {
+  background-color: #153d80;
+}
+
+.table-container {
+  width: 100%;
+  max-width: 800px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+th {
+  background-color: #e5ebf1;
 }
