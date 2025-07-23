@@ -85,9 +85,10 @@ function App() {
             Дата репатриации:
             <input
               type="text"
+              inputMode="numeric"
               value={aliyahDate}
               onChange={(e) => {
-                let val = e.target.value.replace(/\D/g, '').slice(0, 8); // Удаляем всё, кроме цифр, максимум 8 символов
+                let val = e.target.value.replace(/\D/g, '').slice(0, 8); // Только цифры, максимум 8 символов
 
                 if (val.length >= 5) {
                   val = `${val.slice(0, 2)}.${val.slice(2, 4)}.${val.slice(4, 8)}`;
@@ -100,6 +101,7 @@ function App() {
               placeholder="дд.мм.гггг"
               className={showError && !aliyahDate ? 'error-input' : ''}
             />
+
           </label>
 
           {showError && (
