@@ -1,0 +1,45 @@
+.lang-dropdown {
+    position: relative;
+    margin-left: 1rem;
+  }
+  
+  .lang-button {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 70px;
+  }
+  
+  .lang-menu {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    list-style: none;
+    margin: 0;
+    padding: 4px 0;
+    z-index: 1000;
+  }
+  
+  .lang-menu li {
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .lang-menu li:hover,
+  .lang-menu li.active {
+    background-color: #f0f0f0;
+  }
+
+  .lang-flag {
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  

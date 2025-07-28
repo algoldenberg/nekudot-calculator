@@ -1,29 +1,46 @@
 .site-header {
-  background-color: #f5f8fa;
-  border-bottom: 1px solid #ccc;
-  padding: 1rem 2rem;
+  background-color: #f8f9fa;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Центрирует всё по горизонтали */
+  align-items: center;
+  position: relative;
+  gap: 1.5rem;
 }
 
 .logo-block {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 12px;
 }
 
 .emblem {
-  width: 50px;
+  width: 48px;
   height: auto;
 }
 
-.text h1 {
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-title {
+  font-size: 24px;
   margin: 0;
   color: #003366;
+  font-weight: bold;
+  text-align: left;
 }
 
 .tagline {
   margin: 0;
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 14px;
+  color: #555;
+  text-align: left;
 }
