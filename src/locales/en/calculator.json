@@ -1,0 +1,17 @@
+{
+    "copy": "Copy table",
+    "export": "Export to CSV",
+    "copied": "Table copied to clipboard!",
+    "table": {
+      "month": "Month",
+      "extra": "Extra credits",
+      "base": "Base credits",
+      "total": "Total credits",
+      "discount": "Tax benefit (₪)"
+    },
+    "message": {
+      "text": "Your new immigrant benefits have ended — only base credits remain. Click the button below to calculate additional credits based on your family status and children on the official Israeli tax site.",
+      "link": "Go to family tax calculator"
+    }
+  }
+  

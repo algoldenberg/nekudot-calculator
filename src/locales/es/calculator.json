@@ -1,0 +1,17 @@
+{
+    "copy": "Copiar tabla",
+    "export": "Exportar a CSV",
+    "copied": "¡Tabla copiada al portapapeles!",
+    "table": {
+      "month": "Mes",
+      "extra": "Créditos extra",
+      "base": "Créditos base",
+      "total": "Total de créditos",
+      "discount": "Beneficio fiscal (₪)"
+    },
+    "message": {
+      "text": "Los beneficios fiscales como nuevo inmigrante han terminado — solo quedan los créditos base. Haz clic en el botón de abajo para calcular créditos adicionales según tu situación familiar en el sitio oficial de impuestos de Israel.",
+      "link": "Ir al calculador de beneficios familiares"
+    }
+  }
+  

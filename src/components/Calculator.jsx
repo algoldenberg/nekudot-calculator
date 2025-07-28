@@ -1,9 +1,11 @@
 import './Calculator.css';
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const CREDIT_VALUE = 242;
 
 function Calculator({ gender, aliyahDate, aliyahType }) {
+  const { t, i18n } = useTranslation('calculator');
   const tableRef = useRef(null);
   const basePoints = gender === 'female' ? 2.75 : 2.25;
 
@@ -30,7 +32,7 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
 
   for (const stage of stages) {
     for (let i = 0; i < stage.duration; i++) {
-      const monthLabel = current.toLocaleDateString('ru-RU', {
+      const monthLabel = current.toLocaleDateString(i18n.language === 'ru' ? 'ru-RU' : 'en-US', {
         month: '2-digit',
         year: 'numeric',
       });
@@ -50,7 +52,7 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
     }
   }
 
-  const lastBenefitMonth = current.toLocaleDateString('ru-RU', {
+  const lastBenefitMonth = current.toLocaleDateString(i18n.language === 'ru' ? 'ru-RU' : 'en-US', {
     month: '2-digit',
     year: 'numeric',
   });
@@ -66,17 +68,16 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
   months.push({
     message: (
       <div className="benefit-ended">
-        ⚠️ Льготы репатрианта закончились — осталось только базовые очки.
+        ⚠️ {t('message.text')}
         <br />
         <br />
-        Нажав на кнопку ниже вы можете рассчитать дополнительные некудот зикуи, зависящие от вашего семейного статуса, наличия детей и т.д. на официальной странице налогового управления Израиля
         <a
           className="simulator-link"
           href="https://secapp.taxes.gov.il/srsimulatorNZ/#/simulator"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Перейти к калькулятору семейных льгот
+          {t('message.link')}
         </a>
       </div>
     ),
@@ -94,16 +95,29 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
         return cells.join('\t');
       });
 
-    const header = ['Месяц', 'Доп. н.з.', 'Базовые н.з.', 'Всего н.з.', 'Льгота (₪)'].join('\t');
+    const header = [
+      t('table.month'),
+      t('table.extra'),
+      t('table.base'),
+      t('table.total'),
+      t('table.discount'),
+    ].join('\t');
+
     const text = [header, ...rows].join('\n');
 
     navigator.clipboard.writeText(text).then(() => {
-      alert('Таблица скопирована в буфер обмена!');
+      alert(t('copied'));
     });
   };
 
   const exportToCSV = () => {
-    const header = ['Месяц', 'Доп. н.з.', 'Базовые н.з.', 'Всего н.з.', 'Льгота (₪)'];
+    const header = [
+      t('table.month'),
+      t('table.extra'),
+      t('table.base'),
+      t('table.total'),
+      t('table.discount'),
+    ];
     const rows = months
       .filter(row => !row.message)
       .map(row => [
@@ -131,21 +145,21 @@ function Calculator({ gender, aliyahDate, aliyahType }) {
     <div className="table-container">
       <div className="table-actions">
         <button className="copy-btn" onClick={copyTableToClipboard}>
-          📋 Скопировать таблицу
+          📋 {t('copy')}
         </button>
         <button className="export-btn" onClick={exportToCSV}>
-          📁 Экспортировать в CSV
+          📁 {t('export')}
         </button>
       </div>
 
       <table ref={tableRef}>
         <thead>
           <tr>
-            <th>Месяц</th>
-            <th>Доп. н.з.</th>
-            <th>Базовые н.з.</th>
-            <th>Всего н.з.</th>
-            <th>Льгота (₪)</th>
+            <th>{t('table.month')}</th>
+            <th>{t('table.extra')}</th>
+            <th>{t('table.base')}</th>
+            <th>{t('table.total')}</th>
+            <th>{t('table.discount')}</th>
           </tr>
         </thead>
         <tbody>
