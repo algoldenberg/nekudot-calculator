@@ -1,9 +1,10 @@
 {
-  "title": "¿Qué son los puntos fiscales?",
+  "title": "¿Qué son los beneficios fiscales?",
   "intro": "En Israel, cada residente tiene derecho a puntos fiscales (נקודות זיכוי) que reducen el impuesto sobre la renta.",
-  "p1": "Los nuevos inmigrantes reciben puntos adicionales por un período limitado — lo que les permite pagar menos impuestos.",
-  "p2": "Nuestro calculador muestra el número de puntos por mes y el beneficio total en shekels.",
-  "guide": "Guía completa sobre beneficios fiscales y devolución de impuestos",
+  "p1": "Los nuevos inmigrantes reciben puntos adicionales durante un tiempo limitado, lo que les permite pagar menos impuestos.",
+  "p2": "Nuestra calculadora muestra la cantidad de puntos por mes y el beneficio total en shekels.",
+  "guide": "Guía detallada sobre beneficios fiscales y devolución de impuestos",
+  "guideNote": "La guía está disponible actualmente solo en ruso.",
 
   "before2022": {
     "title": "Reglas para inmigrantes antes de 2022",
@@ -26,7 +27,7 @@
   },
 
   "after2022": {
-    "title": "Reglas para inmigrantes desde 2022 en adelante",
+    "title": "Reglas para inmigrantes desde 2022",
     "line1": "Período de beneficio — 54 meses desde la fecha de aliyá.",
     "line2": {
       "start": "Primeros 12 meses —",

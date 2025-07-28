@@ -47,6 +47,8 @@ function FaqModal({ isOpen, onClose }) {
           >
             {t('guide')}
           </a>
+          <br />
+          <small className="guide-note">{t('guideNote')}</small>
         </div>
 
         <hr />
