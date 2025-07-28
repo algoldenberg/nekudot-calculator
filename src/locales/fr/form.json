@@ -8,6 +8,7 @@
     "submit": "Calculer",
     "faq": "Qu'est-ce que\nles avantages fiscaux ?",
     "errorFill": "Veuillez remplir tous les champs avant de calculer.",
-    "errorDate": "Date invalide. Utilisez jj.mm.aaaa avec une année entre 1948–2100."
+    "errorDate": "Date invalide. Utilisez jj.mm.aaaa avec une année entre 1948–2100.",
+    "dateHint": "Utilisez le format jj.mm.aaaa"
   }
   

@@ -97,6 +97,7 @@ function App() {
               placeholder={t('placeholder')}
               className={showError && !aliyahDate ? 'error-input' : ''}
             />
+            <small className="date-hint">{t('dateHint')}</small>
           </label>
 
           {showError && <div className="error-message">{errorMessage}</div>}

@@ -8,6 +8,7 @@
     "submit": "Calculate",
     "faq": "What are\nTax Benefits?",
     "errorFill": "Please fill in all fields before calculating.",
-    "errorDate": "Invalid date. Use format DD.MM.YYYY and year between 1948–2100."
+    "errorDate": "Invalid date. Use format DD.MM.YYYY and year between 1948–2100.",
+    "dateHint": "Use the format dd.mm.yyyy"
   }
   

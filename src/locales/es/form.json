@@ -8,6 +8,7 @@
     "submit": "Calcular",
     "faq": "¿Qué son\nlos beneficios fiscales?",
     "errorFill": "Por favor, completa todos los campos antes de calcular.",
-    "errorDate": "Fecha inválida. Usa formato dd.mm.aaaa y año entre 1948–2100."
+    "errorDate": "Fecha inválida. Usa formato dd.mm.aaaa y año entre 1948–2100.",
+    "dateHint": "Usa el formato dd.mm.aaaa"
   }
   
