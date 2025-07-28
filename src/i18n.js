@@ -29,6 +29,13 @@ import calculator_fr from './locales/fr/calculator.json';
 import calculator_es from './locales/es/calculator.json';
 import calculator_ua from './locales/ua/calculator.json';
 
+// form
+import form_en from './locales/en/form.json';
+import form_ru from './locales/ru/form.json';
+import form_fr from './locales/fr/form.json';
+import form_es from './locales/es/form.json';
+import form_ua from './locales/ua/form.json';
+
 i18n.use(initReactI18next).init({
   resources: {
     en: {
@@ -36,35 +43,40 @@ i18n.use(initReactI18next).init({
       footer: footer_en,
       faq: faq_en,
       calculator: calculator_en,
+      form: form_en,
     },
     ru: {
       header: header_ru,
       footer: footer_ru,
       faq: faq_ru,
       calculator: calculator_ru,
+      form: form_ru,
     },
     fr: {
       header: header_fr,
       footer: footer_fr,
       faq: faq_fr,
       calculator: calculator_fr,
+      form: form_fr,
     },
     es: {
       header: header_es,
       footer: footer_es,
       faq: faq_es,
       calculator: calculator_es,
+      form: form_es,
     },
     ua: {
       header: header_ua,
       footer: footer_ua,
       faq: faq_ua,
       calculator: calculator_ua,
+      form: form_ua,
     },
   },
   lng: 'ru',
   fallbackLng: 'ru',
-  ns: ['header', 'footer', 'faq', 'calculator'],
+  ns: ['header', 'footer', 'faq', 'calculator', 'form'],
   defaultNS: 'header',
   interpolation: {
     escapeValue: false,

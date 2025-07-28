@@ -1,0 +1,13 @@
+{
+    "genderLabel": "Género:",
+    "genderPlaceholder": "Elige...",
+    "male": "Masculino",
+    "female": "Femenino",
+    "aliyahLabel": "Fecha de aliyá:",
+    "placeholder": "dd.mm.aaaa",
+    "submit": "Calcular",
+    "faq": "¿Qué son\nlos beneficios fiscales?",
+    "errorFill": "Por favor, completa todos los campos antes de calcular.",
+    "errorDate": "Fecha inválida. Usa formato dd.mm.aaaa y año entre 1948–2100."
+  }
+  
