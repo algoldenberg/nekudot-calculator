@@ -1,6 +1,10 @@
 import './Footer.css';
+import { useTranslation } from 'react-i18next';
+
 
 function Footer() {
+  const { t } = useTranslation('footer');
+
   return (
     <footer className="site-footer">
       <p>
@@ -9,9 +13,9 @@ function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          GitHub проекта
+          {t('github')}
         </a>{' '}
-        · MIT License · © {new Date().getFullYear()} Alex Goldenberg
+        · {t('license')} · © {new Date().getFullYear()} Alex Goldenberg
       </p>
     </footer>
   );
