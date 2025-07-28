@@ -1,0 +1,52 @@
+{
+  "title": "What are tax points?",
+  "intro": "In Israel, every resident is entitled to tax points (נקודות זיכוי) which reduce income tax.",
+  "p1": "New immigrants receive additional points for a limited time — allowing them to pay less tax.",
+  "p2": "Our calculator shows the number of points by month and the total benefit in shekels.",
+  "guide": "Detailed guide on tax benefits and tax return",
+
+  "before2022": {
+    "title": "Rules for immigrants before 2022",
+    "line1": "Benefit period — 42 months from the date of aliyah.",
+    "line2": {
+      "start": "First 18 months —",
+      "bold": "3 points",
+      "end": "(₪726/month)."
+    },
+    "line3": {
+      "start": "Next 12 months —",
+      "bold": "2 points",
+      "end": "(₪484/month)."
+    },
+    "line4": {
+      "start": "Remaining 12 months —",
+      "bold": "1 point",
+      "end": "(₪242/month)."
+    }
+  },
+
+  "after2022": {
+    "title": "Rules for immigrants from 2022 and after",
+    "line1": "Benefit period — 54 months from the date of aliyah.",
+    "line2": {
+      "start": "First 12 months —",
+      "bold": "1 point",
+      "end": "(₪242/month)."
+    },
+    "line3": {
+      "start": "Next 18 months —",
+      "bold": "3 points",
+      "end": "(₪726/month)."
+    },
+    "line4": {
+      "start": "Next 12 months —",
+      "bold": "2 points",
+      "end": "(₪484/month)."
+    },
+    "line5": {
+      "start": "Remaining 12 months —",
+      "bold": "1 point",
+      "end": "(₪242/month)."
+    }
+  }
+}

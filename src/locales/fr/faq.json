@@ -1,0 +1,52 @@
+{
+  "title": "Qu'est-ce que les points fiscaux ?",
+  "intro": "En Israël, chaque résident a droit à des points fiscaux (נקודות זיכוי) qui réduisent l’impôt sur le revenu.",
+  "p1": "Les nouveaux immigrants bénéficient de points supplémentaires pendant une période limitée — ce qui permet de payer moins d'impôts.",
+  "p2": "Notre calculateur indique le nombre de points par mois et le montant de l'avantage en shekels.",
+  "guide": "Guide complet sur les avantages fiscaux et le remboursement d'impôt",
+
+  "before2022": {
+    "title": "Règles pour les immigrants avant 2022",
+    "line1": "Période d’avantage — 42 mois à partir de la date d’aliyah.",
+    "line2": {
+      "start": "Les 18 premiers mois —",
+      "bold": "3 points",
+      "end": "(₪726/mois)."
+    },
+    "line3": {
+      "start": "Les 12 mois suivants —",
+      "bold": "2 points",
+      "end": "(₪484/mois)."
+    },
+    "line4": {
+      "start": "Les 12 derniers mois —",
+      "bold": "1 point",
+      "end": "(₪242/mois)."
+    }
+  },
+
+  "after2022": {
+    "title": "Règles pour les immigrants à partir de 2022",
+    "line1": "Période d’avantage — 54 mois à partir de la date d’aliyah.",
+    "line2": {
+      "start": "Les 12 premiers mois —",
+      "bold": "1 point",
+      "end": "(₪242/mois)."
+    },
+    "line3": {
+      "start": "Les 18 mois suivants —",
+      "bold": "3 points",
+      "end": "(₪726/mois)."
+    },
+    "line4": {
+      "start": "Les 12 mois suivants —",
+      "bold": "2 points",
+      "end": "(₪484/mois)."
+    },
+    "line5": {
+      "start": "Les 12 derniers mois —",
+      "bold": "1 point",
+      "end": "(₪242/mois)."
+    }
+  }
+}

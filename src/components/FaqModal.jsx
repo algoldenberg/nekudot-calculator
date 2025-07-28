@@ -1,7 +1,10 @@
 import './FaqModal.css';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function FaqModal({ isOpen, onClose }) {
+  const { t } = useTranslation('faq');
+
   useEffect(() => {
     const handleEsc = (event) => {
       if (event.key === 'Escape') {
@@ -10,10 +13,10 @@ function FaqModal({ isOpen, onClose }) {
     };
 
     if (isOpen) {
-      document.body.style.overflow = 'hidden'; // Disable scroll
+      document.body.style.overflow = 'hidden';
       document.addEventListener('keydown', handleEsc);
     } else {
-      document.body.style.overflow = ''; // Enable scroll
+      document.body.style.overflow = '';
       document.removeEventListener('keydown', handleEsc);
     }
 
@@ -28,19 +31,12 @@ function FaqModal({ isOpen, onClose }) {
   return (
     <div className="faq-modal-overlay" onClick={onClose}>
       <div className="faq-modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="faq-close-btn" onClick={onClose}>
-          ✕
-        </button>
-        <h2>Что такое налоговые очки?</h2>
-        <p>
-          В Израиле каждый резидент имеет право на налоговые очки (נקודות זיכוי), которые уменьшают подоходный налог.
-        </p>
-        <p>
-          Новые репатрианты получают дополнительные очки на ограниченный срок — это позволяет платить меньше налогов.
-        </p>
-        <p>
-          Наш калькулятор показывает количество очков по месяцам и сумму льготы в шекелях.
-        </p>
+        <button className="faq-close-btn" onClick={onClose}>✕</button>
+
+        <h2>{t('title')}</h2>
+        <p>{t('intro')}</p>
+        <p>{t('p1')}</p>
+        <p>{t('p2')}</p>
 
         <div style={{ marginTop: '2rem', textAlign: 'center' }}>
           <a
@@ -49,28 +45,42 @@ function FaqModal({ isOpen, onClose }) {
             rel="noopener noreferrer"
             className="guide-button"
           >
-             Подробный гайд по налоговым льготам и вовзрату налога
+            {t('guide')}
           </a>
         </div>
 
         <hr />
-        <h3>Правила для репатриантов до 2022 года</h3>
+
+        <h3>{t('before2022.title')}</h3>
         <ul>
-          <li>Период льготы — 42 месяца с момента репатриации.</li>
-          <li>Первые 18 месяцев — <b>3 некуды</b> (726 шек. в месяц).</li>
-          <li>Следующие 12 месяцев — <b>2 некуды</b> (484 шек. в месяц).</li>
-          <li>Оставшиеся 12 месяцев — <b>1 некуда</b> (242 шек. в месяц).</li>
-        </ul>
-        <h3>Правила для репатриантов с 2022 года и позже</h3>
-        <ul>
-          <li>Период льготы — 54 месяца с момента репатриации.</li>
-          <li>Первые 12 месяцев — <b>1 некуда</b> (242 шек. в месяц).</li>
-          <li>Следующие 18 месяцев — <b>3 некуды</b> (726 шек. в месяц).</li>
-          <li>Следующие 12 месяцев — <b>2 некуды</b> (484 шек. в месяц).</li>
-          <li>Оставшиеся 12 месяцев — <b>1 некуда</b> (242 шек. в месяц).</li>
+          <li>{t('before2022.line1')}</li>
+          <li>
+            {t('before2022.line2.start')} <strong>{t('before2022.line2.bold')}</strong> {t('before2022.line2.end')}
+          </li>
+          <li>
+            {t('before2022.line3.start')} <strong>{t('before2022.line3.bold')}</strong> {t('before2022.line3.end')}
+          </li>
+          <li>
+            {t('before2022.line4.start')} <strong>{t('before2022.line4.bold')}</strong> {t('before2022.line4.end')}
+          </li>
         </ul>
 
-
+        <h3>{t('after2022.title')}</h3>
+        <ul>
+          <li>{t('after2022.line1')}</li>
+          <li>
+            {t('after2022.line2.start')} <strong>{t('after2022.line2.bold')}</strong> {t('after2022.line2.end')}
+          </li>
+          <li>
+            {t('after2022.line3.start')} <strong>{t('after2022.line3.bold')}</strong> {t('after2022.line3.end')}
+          </li>
+          <li>
+            {t('after2022.line4.start')} <strong>{t('after2022.line4.bold')}</strong> {t('after2022.line4.end')}
+          </li>
+          <li>
+            {t('after2022.line5.start')} <strong>{t('after2022.line5.bold')}</strong> {t('after2022.line5.end')}
+          </li>
+        </ul>
       </div>
     </div>
   );
