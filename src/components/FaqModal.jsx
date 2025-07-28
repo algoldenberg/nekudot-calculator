@@ -41,6 +41,18 @@ function FaqModal({ isOpen, onClose }) {
         <p>
           Наш калькулятор показывает количество очков по месяцам и сумму льготы в шекелях.
         </p>
+
+        <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+          <a
+            href="https://www.notion.so/23d5f35ac7db808cb612c9f1f2426961?source=copy_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="guide-button"
+          >
+             Подробный гайд по налоговым льготам и вовзрату налога
+          </a>
+        </div>
+
         <hr />
         <h3>Правила для репатриантов до 2022 года</h3>
         <ul>
@@ -57,6 +69,8 @@ function FaqModal({ isOpen, onClose }) {
           <li>Следующие 12 месяцев — <b>2 некуды</b> (484 шек. в месяц).</li>
           <li>Оставшиеся 12 месяцев — <b>1 некуда</b> (242 шек. в месяц).</li>
         </ul>
+
+
       </div>
     </div>
   );
