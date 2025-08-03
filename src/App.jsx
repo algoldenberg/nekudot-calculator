@@ -107,6 +107,17 @@ function App() {
           <button type="button" className="faq-btn" onClick={() => setIsFaqOpen(true)}>
             {t('faq')}
           </button>
+
+          <div style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
+            <p>{t('otherProjects')}</p>
+            <ul>
+              <li>
+                <a href="https://darcon-calculator.netlify.app/" target="_blank" rel="noopener noreferrer">
+                  {t('linkDarcon')}
+                </a>
+              </li>
+            </ul>
+          </div>
         </form>
 
         {submitted && submittedGender && submittedDate && submittedType && (

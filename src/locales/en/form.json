@@ -7,6 +7,8 @@
     "placeholder": "dd.mm.yyyy",
     "submit": "Calculate",
     "faq": "What are\nTax Benefits?",
+    "otherProjects": "Other tools we’ve built:",
+    "linkDarcon": "Calculadora de pasaporte israelí (Darcon)",
     "errorFill": "Please fill in all fields before calculating.",
     "errorDate": "Invalid date. Use format DD.MM.YYYY and year between 1948–2100.",
     "dateHint": "Use the format dd.mm.yyyy"
